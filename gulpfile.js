@@ -13,13 +13,10 @@ const delDir = (paths) => {
   const files = fs.readdirSync(paths)
   files.forEach(file => {
     let curPath = `${paths}/${file}`
-    if (fs.statSync(curPath).isDirectory()) {
-      delDir(curPath) //递归删除文件夹
-    } else {
-      fs.unlinkSync(curPath) //删除文件
-    }
+    if (fs.statSync(curPath).isDirectory()) delDir(curPath) //递归删除文件夹
+    else fs.unlinkSync(curPath) //删除文件
   })
-  fs.rmdirSync(paths)
+  fs.rmdirSync(paths)//内容空了,再删文件夹
 }
 
 if (fs.existsSync(sendPath)) delDir(sendPath)
@@ -48,10 +45,7 @@ const js = (taskName, src, dest, Iscompress) => {
         .pipe(gulp.dest(dest))
     })
   } else {
-    gulp.task(taskName, () => {
-      return gulp.src(src)
-        .pipe(gulp.dest(dest))
-    })
+    gulp.task(taskName, () => gulp.src(src).pipe(gulp.dest(dest)))
   }
 }
 
@@ -64,10 +58,7 @@ const css = (taskName, src, dest) => {
 }
 
 const images = (taskName, src, dest) => {
-  gulp.task(taskName, () => {
-    return gulp.src(src)
-      .pipe(gulp.dest(dest))
-  })
+  gulp.task(taskName, () => gulp.src(src).pipe(gulp.dest(dest)))
 }
 
 const goods = [{
