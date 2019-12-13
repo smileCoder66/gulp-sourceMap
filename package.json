@@ -1,0 +1,21 @@
+{
+  "name": "sourceMap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpFile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "devDependencies": {
+    "gulp-uglify-es": "^2.0.0"
+  }
+}
