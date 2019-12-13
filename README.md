@@ -12,7 +12,7 @@ uglify-js 是最常用的 JavaScript 代码压缩工具，但只支持到 ES5，
 
 source-map-support 是一个在 Node.js 环境下支持 Source Map 的模块。
 
---原文引自<https://github.com/nswbmw/node-in-debugging/blob/master/4.1%20Source%20Map.md>
+--原文引自大神<https://github.com/nswbmw/node-in-debugging/blob/master/4.1%20Source%20Map.md>
 
 原生项目个人比较喜欢用gulp,这里我修改为使用gulp的操作:
 
@@ -24,11 +24,11 @@ source-map-support 是一个在 Node.js 环境下支持 Source Map 的模块。
 生成 app.js 和 app.js.map 文件,并运行app.js
 
 ```
-\sourceMap\dist\js\app.js:4
+...\sourceMap\dist\js\app.js:4
   throw new Error('error!!!')
         ^
 Error: error!!!
-    at sayHello(c:\Surpass-Strong\sourceMap\dist\js\app.js:4:9)
+    at sayHello(...\sourceMap\dist\js\app.js:4:9)
 ```
 
 如果删掉最后那行sourceMap注释,则无法显示正确的错误栈
@@ -38,9 +38,9 @@ Error: error!!!
 function sayHello(r){throw new Error("error!!!")}require("source-map-support").install(),sayHello("World");
                            ^
 Error: error!!!
-    at sayHello (c:\Surpass-Strong\sourceMap\dist\js\app.js:1:28)
+    at sayHello (...\sourceMap\dist\js\app.js:1:28)
 ```
 
 ### gulp
 
-整理了下之前gulpfile的旧写法,当然也可写入（我前面有提及过）在package.json内配置执行js.
+整理了下之前gulpfile的旧写法,当然后续也可写入（我前面仓库里有提及过）在package.json内配置执行node js.
